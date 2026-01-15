@@ -133,7 +133,7 @@
                 flex-direction: column;
             }
         }
-    </style>
+      </style>
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
         function initializeLiff(myLiffId) {
@@ -157,15 +157,16 @@
             .then(profile => {
               const userId = profile.userId;
               document.getElementById('userId').textContent = `ユーザーID: ${userId}`;
+              const displayName = profile.displayName;
+              document.getElementById('displayName').textContent = `${displayName} さん`;
             })
             .catch((err) => {
               console.error('プロフィール情報の取得に失敗しました', err);
             });
         }
         document.addEventListener('DOMContentLoaded', function () {
-          const myLiffId = '2006858929-DvAozEev'; // ここにあなたのLIFF IDを入力してください
+          const myLiffId = 'YOUR_LIFF_ID'; // ここにあなたのLIFF IDを入力してください
           initializeLiff(myLiffId);
-
         });
       </script>
     <title>LIFF Starter</title>
@@ -173,10 +174,11 @@
   <body>
     <div class="home">
       <h1 class="home__title">
-        Welcome to <br /><a
+       こんにちは <br /><a
           class="home__title__link"
           href="https://developers.line.biz/en/docs/liff/overview/"
-          >LIFF Starter!</a
+          id="displayName"
+          >表示名を取得中...</a
         >
       </h1>
       <div id="userId" class="user-id">ユーザーIDを取得中...</div>
